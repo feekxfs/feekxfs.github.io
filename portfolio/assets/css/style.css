@@ -990,6 +990,64 @@ a:hover {
   font-size: 1.2rem;
 }
 
+
+/* Make all portfolio boxes same height */
+.work-box {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+/* Image container with fixed height */
+.work-img {
+  height: 180px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f8f9fa;
+}
+
+/* Force images to fit nicely */
+.work-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  /* use cover if you prefer cropped */
+}
+
+/* Content stretches evenly */
+.work-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* Fix title height so cards align */
+.w-title {
+  min-height: 48px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+/* Align plus icon properly */
+.w-like {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.work-box {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.work-box:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+
 /*--------------------------------------------------------------
 # Portfolio Details
 --------------------------------------------------------------*/
@@ -1486,16 +1544,16 @@ footer .credits a {
 
 .whatsapp-float {
   position: fixed;
-  width: 55px;
-  height: 55px;
-  bottom: 25px;
+  width: 65px;
+  height: 65px;
+  bottom: 100px;
+  /* ⬅️ push it UP */
   right: 25px;
   background-color: #25d366;
   color: #fff;
   border-radius: 50%;
-  text-align: center;
-  font-size: 28px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  font-size: 32px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
   z-index: 999;
   display: flex;
   align-items: center;
@@ -1504,6 +1562,80 @@ footer .credits a {
 }
 
 .whatsapp-float:hover {
-  transform: scale(1.1);
+  transform: scale(1.12);
   color: #fff;
+}
+
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-float {
+  animation: pulse 2.5s infinite;
+}
+
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 90px;
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.tech-stack .badge {
+  margin: 4px 6px 4px 0;
+  padding: 8px 12px;
+  font-size: 13px;
+  border-radius: 20px;
+}
+
+.portfolio-description ul li {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.portfolio-details-slider img {
+  border-radius: 10px;
+  transition: transform 0.4s ease;
+}
+
+.portfolio-details-slider img:hover {
+  transform: scale(1.03);
+}
+
+.portfolio-info {
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.portfolio-info ul li {
+  padding: 6px 0;
+}
+
+.portfolio-description,
+.portfolio-info {
+  animation: fadeUp 0.8s ease;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
